@@ -8,23 +8,26 @@ import org.openqa.selenium.support.PageFactory;
 public class AmazonHomePage {
 	private WebDriver driver;
 
+	//Locate sign in link
 	@FindBy(id="nav-link-accountList-nav-line-1")
 	private WebElement signInLink;
 	
+	//Locate email input
 	@FindBy(id="ap_email")
 	private WebElement userEmail;
 	
+	//Locate contimue button
 	@FindBy(id="continue")
 	private WebElement continueButton;
 
+	//Locate password input
 	@FindBy(id="ap_password")
 	private WebElement password;
 
+	//Locate Submit button
 	@FindBy(id="signInSubmit")
 	private WebElement signInButton;
 	
-	@FindBy(id="ap-account-fixup-phone-skip-link")
-	private WebElement notNow;
 	
 	public AmazonHomePage(WebDriver driver){
 
@@ -66,11 +69,6 @@ public class AmazonHomePage {
 	public void submitSignIn() {
 		
 		this.signInButton.click();
-	}
-	
-	public void clickNotNow() {
-		
-		this.notNow.click();
 	}
 	
 }

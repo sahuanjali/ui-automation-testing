@@ -8,12 +8,14 @@ import org.openqa.selenium.support.PageFactory;
 public class CartPage {
 	
 	private WebDriver driver;
-
+	
+	//locate Proceeed to Cart web element 
 	@FindBy( id = "hlb-ptc-btn-native")
 	private WebElement proceedToCartButton;
 	
+	//locate price in cart web element 
 	@FindBy( css = "span[class='a-color-price hlb-price a-inline-block a-text-bold']")
-	private WebElement priceOnCart;
+	private WebElement priceInCart;
 
 	
 	public CartPage(WebDriver driver){
@@ -23,26 +25,21 @@ public class CartPage {
         PageFactory.initElements(driver, this);
     }
 	
-	
+	/**
+	 * This method is to click on proceed to cart button  
+	 */
 	public void clickOnProceedToCart(){
 		
 		proceedToCartButton.click();
 		
 	}
-	
+	/**
+	 * This method returns price 
+	 * @return price in cart
+	 */
 	public String getPriceAtCartPage() {
 		
-		return this.priceOnCart.getText().replace("$","");
-	}
-
-	public String getProceedToCartButtonText() {
-		
-		String text = this.proceedToCartButton.getText();
-		
-		System.out.println(" text "+text);
-		text.substring(text.indexOf("(")+1,text.indexOf("(")+2);
-		return text;
-		
+		return this.priceInCart.getText();
 	}
 	
 }

@@ -81,7 +81,8 @@ public class SearchItemTest  {
 		searchItem.submitSearch();
 		
 		//Step 2 get price at result page. price at result page is combination of whole price and fraction price from two different element
-		String bookPrice = resultPage.getPriceWhole()+"."+resultPage.getPriceFraction();
+		String bookPrice = resultPage.getCurrency()+resultPage.getPriceWhole()+"."+resultPage.getPriceFraction();
+		//String bookPrice = resultPage.getPrice();
 		
 		System.out.println("bookPrice :: "+bookPrice);
 
@@ -110,13 +111,10 @@ public class SearchItemTest  {
 		
 		//Assert price at cart against book price at search result(Step 3)
 		Assert.assertEquals(bookPrice, priceAtCart);
-
-		//proceed to next page
-		String string = cartPage.getProceedToCartButtonText();
-		System.out.println("proceedToCartButton ### "+priceAtCart);
 		
 		cartPage.clickOnProceedToCart();
 		shipAndPayment.clickConfirmAddressCart();
+
 		//Get price at checkout page 
 		String priceAtPaymentShiping = shipAndPayment.getPriceAtPaymentShiping();
 		System.out.println(priceAtPaymentShiping);

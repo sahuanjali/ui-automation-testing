@@ -12,14 +12,17 @@ public class ProductPricePage {
 
 	private WebDriver driver;
 
+	//Locate price element option 1
 	@FindBy(id = "newBuyBoxPrice") // price
 	WebElement bookPriceOpt1;
 
+	//Locate price element option 2
 	@FindBy(id = "price") // price
 	WebElement bookPriceOpt2;
 
+	//Locate add to cart button 
 	@FindBy(id = "add-to-cart-button")
-	WebElement clickAddToCart;
+	WebElement addToCart;
 
 	public ProductPricePage(WebDriver driver) {
 
@@ -30,9 +33,9 @@ public class ProductPricePage {
 
 	/**
 	 * Amazon product price at product details page comes with dynamic ids some time
-	 * ib by "newBuyBoxPrice" and sometime by "price" so handled dynamically
+	 * ib by "newBuyBoxPrice" and sometime by "price" so handled dynamically with if condition
 	 * 
-	 * @return
+	 * @return price at product detail page
 	 * @throws Exception
 	 */
 	public String getBookPrice() {
@@ -49,21 +52,24 @@ public class ProductPricePage {
 
 		if (isPresent) {
 			// click on the search button
-			price = bookPriceOpt1.getText().replace("$", "");
+			price = bookPriceOpt1.getText();
 		} else {
 
 			//WebElement priceDynamicElement2 = (new WebDriverWait(driver, 10))
 			//		.until(ExpectedConditions.visibilityOfElementLocated(By.id("price")));
 			// click on the search button
-			price = bookPriceOpt2.getText().replace("$", "");
+			price = bookPriceOpt2.getText();
 		}
 
 		return price;
 
 	}
-
+	
+	/**
+	 * Perform add to cart button
+	 */
 	public void clickAddToCartButton() {
 
-		this.clickAddToCart.click();
+		this.addToCart.click();
 	}
 }

@@ -8,10 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 public class CheckOutPage {
 
 	private WebDriver driver;
-
+	//Locate confirm address button
 	@FindBy(css = "a[class='a-declarative a-button-text ']")
 	private WebElement confirmAddressCart;
-
+	
+	//Locate Price on payment and shipping page
 	@FindBy(className = "a-color-price")
 	private WebElement priceAtPaymentShiping;
 
@@ -22,15 +23,21 @@ public class CheckOutPage {
 		PageFactory.initElements(driver, this);
 	}
 
+	/**
+	 * Click on confirm address button
+	 */
 	public void clickConfirmAddressCart() {
 
 		confirmAddressCart.click();
 
 	}
-
+	/**
+	 * This method returns price at checkout page
+	 * @return Price on checkout page
+	 */
 	public String getPriceAtPaymentShiping() {
 
-		return this.priceAtPaymentShiping.getText().replace("$", "");
+		return this.priceAtPaymentShiping.getText();
 	}
 
 }
