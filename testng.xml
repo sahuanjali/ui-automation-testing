@@ -1,0 +1,17 @@
+<suite name="Group of group Suite" verbose="1">
+	<parameter name="username" value="gopesh.ku.sahu@gmail.com" />
+	<parameter name="password" value="Skywar@10" />
+	<test name="Group of group Test">
+		<groups>
+			<define name="include-group">
+				<include name="include-test-one" />
+			</define>
+		</groups>
+		<classes>
+<!-- 			<class -->
+<!-- 				name="com.efx.assignment.auto.test.amazon.homepage.test.AmazonHomePageTest" /> -->
+			<class
+				name="com.efx.assignment.auto.test.amazon.search.test.SearchItemTest" />				
+		</classes>
+	</test>
+</suite>
